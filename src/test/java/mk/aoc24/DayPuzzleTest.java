@@ -62,7 +62,10 @@ class DayPuzzleTest {
             Arguments.of(DayPuzzle.DAY_22_PUZZLE_1, "14623556510"),
             Arguments.of(DayPuzzle.DAY_22_PUZZLE_2, "1701"),
             Arguments.of(DayPuzzle.DAY_23_PUZZLE_1, "1054"),
-            Arguments.of(DayPuzzle.DAY_23_PUZZLE_2, "ch,cz,di,gb,ht,ku,lu,tw,vf,vt,wo,xz,zk")
+            Arguments.of(DayPuzzle.DAY_23_PUZZLE_2, "ch,cz,di,gb,ht,ku,lu,tw,vf,vt,wo,xz,zk"),
+            Arguments.of(DayPuzzle.DAY_24_PUZZLE_1, "56939028423824"),
+            Arguments.of(DayPuzzle.DAY_24_PUZZLE_2, "frn,gmq,vtj,wnf,wtt,z05,z21,z39"),
+            Arguments.of(DayPuzzle.DAY_25_PUZZLE_1, "3155")
         );
     }
 }

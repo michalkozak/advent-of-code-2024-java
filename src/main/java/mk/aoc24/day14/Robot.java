@@ -38,14 +38,4 @@ public class Robot {
         return y;
     }
 
-    @Override
-    public String toString() {
-        return "Robot{" +
-            "vx=" + vx +
-            ", vy=" + vy +
-            ", x=" + x +
-            ", y=" + y +
-            '}';
-    }
-
 }

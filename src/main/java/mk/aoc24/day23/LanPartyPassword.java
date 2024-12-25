@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+import mk.aoc24.either.Either;
 import mk.aoc24.graph.Graph;
 
 public class LanPartyPassword extends ConnectedComputers {
@@ -21,15 +22,18 @@ public class LanPartyPassword extends ConnectedComputers {
     }
 
     private Set<String> findMaxGroupOfConnectedComputers() {
+        Optional<Set<String>> groupOfConnectedComputers = findGroupOfConnectedComputers(network);
+        if (groupOfConnectedComputers.isPresent()) {
+            return groupOfConnectedComputers.get();
+        }
         deque.offer(network);
         while (!deque.isEmpty()) {
             Graph<String> graph = deque.poll();
-            Optional<Set<String>> groupOfConnectedComputers = findGroupOfConnectedComputers(graph);
-            if (groupOfConnectedComputers.isPresent()) {
-                return groupOfConnectedComputers.get();
+            Either<List<Graph<String>>, Set<String>> subGraphsOrResult = generateAndCheckSubGraphs(graph);
+            if (subGraphsOrResult.isRight()) {
+                return subGraphsOrResult.getRight();
             }
-            List<Graph<String>> subGraphs = getAllSubGraphsWithoutOneNode(graph);
-            for (Graph<String> subGraph : subGraphs) {
+            for (Graph<String> subGraph : subGraphsOrResult.getLeft()) {
                 deque.offer(subGraph);
             }
         }
@@ -49,12 +53,17 @@ public class LanPartyPassword extends ConnectedComputers {
         return Optional.empty();
     }
 
-    private List<Graph<String>> getAllSubGraphsWithoutOneNode(Graph<String> graph) {
+    private Either<List<Graph<String>>, Set<String>> generateAndCheckSubGraphs(Graph<String> graph) {
         List<Graph<String>> subGraphs = new ArrayList<>();
-        for (String node : graph.getAllNodes()) {
-            subGraphs.add(graph.newGraphWithoutNode(node));
+        for (String node : graph.getAllNodesSortedByNumberOfAdjacentsDescending()) {
+            Graph<String> subGraph = graph.newGraphWithoutNode(node);
+            Optional<Set<String>> groupOfConnectedComputers = findGroupOfConnectedComputers(subGraph);
+            if (groupOfConnectedComputers.isPresent()) {
+                return Either.right(groupOfConnectedComputers.get());
+            }
+            subGraphs.add(subGraph);
         }
-        return subGraphs;
+        return Either.left(subGraphs);
     }
 
 }

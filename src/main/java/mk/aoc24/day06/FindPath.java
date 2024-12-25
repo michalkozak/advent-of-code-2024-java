@@ -34,7 +34,7 @@ public class FindPath extends PuzzleSolver {
     }
 
     protected void moveGuard(MovingCoordinate guardPosition) {
-        while (true){
+        while (true) {
             if (guardBoard.get(guardPosition.getCoordinate()) != 'X') {
                 guardBoard.set(guardPosition.getCoordinate(), 'X');
                 numberOfVisitedPlaces++;

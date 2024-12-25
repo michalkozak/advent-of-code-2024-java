@@ -1,6 +1,7 @@
 package mk.aoc24.day17;
 
-import java.math.BigInteger;
+import static mk.aoc24.helper.MathHelper.power;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -64,7 +65,7 @@ public enum Instruction {
 
     private long compute(int operand, Registers reg) {
         return switch (this) {
-            case ADV, BDV, CDV -> reg.a() / BigInteger.valueOf(2).pow((int) combo(operand, reg)).longValue();
+            case ADV, BDV, CDV -> reg.a() / power(2, (int) combo(operand, reg), 1);
             case BXL -> reg.b() ^ operand;
             case BST, OUT -> combo(operand, reg) % 8;
             case JNZ -> reg.a();

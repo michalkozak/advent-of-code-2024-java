@@ -1,6 +1,7 @@
 package mk.aoc24.day17;
 
-import java.math.BigInteger;
+import static mk.aoc24.helper.MathHelper.power;
+
 import java.util.List;
 
 public class ProgramCopy extends ThreeBitComputer {
@@ -8,12 +9,12 @@ public class ProgramCopy extends ThreeBitComputer {
     @Override
     protected String computeResult() {
         int programSize = program.size();
-        long initA = BigInteger.valueOf(8).pow(programSize - 1).longValue();
+        long initA = power(8, programSize - 1, 1);
         reg.a(initA);
         List<Integer> output = null;
         for (var i = 0; i < programSize - 1; i++) {
-            long pow8 = BigInteger.valueOf(8).pow(i).longValue();
-            long pow2 = BigInteger.valueOf(2).pow(i).longValue();
+            long pow8 = power(8, i, 1);
+            long pow2 = power(2, i, 1);
             int k = 0;
             do {
                 long kpow8 = k * pow8;

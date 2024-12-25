@@ -47,6 +47,9 @@ import mk.aoc24.day22.BestBananasPrice;
 import mk.aoc24.day22.MonkeyMarket;
 import mk.aoc24.day23.ConnectedComputers;
 import mk.aoc24.day23.LanPartyPassword;
+import mk.aoc24.day24.AdditionSystem;
+import mk.aoc24.day24.LogicCircuit;
+import mk.aoc24.day25.LocksAndKeys;
 
 public enum DayPuzzle {
     DAY_01_PUZZLE_1(new LocationsDistance()),
@@ -94,7 +97,12 @@ public enum DayPuzzle {
     DAY_22_PUZZLE_1(new MonkeyMarket(2000)),
     DAY_22_PUZZLE_2(new BestBananasPrice(2000)),
     DAY_23_PUZZLE_1(new ConnectedComputers()),
-    DAY_23_PUZZLE_2(new LanPartyPassword());
+    DAY_23_PUZZLE_2(new LanPartyPassword()),
+    DAY_24_PUZZLE_1(new LogicCircuit()),
+    DAY_24_PUZZLE_2(new AdditionSystem()),
+    DAY_25_PUZZLE_1(new LocksAndKeys(7));
+
+
 
     private final PuzzleSolver solver;
 

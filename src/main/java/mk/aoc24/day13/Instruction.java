@@ -12,13 +12,4 @@ public class Instruction {
         this.p = prize;
     }
 
-    @Override
-    public String toString() {
-        return "Instruction{" +
-            "a=" + a +
-            ", b=" + b +
-            ", p=" + p +
-            '}';
-    }
-
 }

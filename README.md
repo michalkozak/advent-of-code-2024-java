@@ -1,6 +1,5 @@
-## Advent of Code 2024 - Java 
-
-How I helped save Christmas in [AoC 2024](https://adventofcode.com/2024)
+## Advent of Code 2024 - Java
+How I helped save Christmas in [AoC 2024](https://adventofcode.com/2024) :grin:
 
 Solutions of programming puzzles in **pure Java**
 

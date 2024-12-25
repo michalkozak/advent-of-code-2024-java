@@ -69,7 +69,7 @@ public class ClawMachine extends PuzzleSolver {
 /*
             and derive
                 inst.b.y() * inst.p.x() - inst.b.x() * inst.p.y()
-            b = -------------------------------------------------
+            a = -------------------------------------------------
                 inst.a.x() * inst.b.y() - inst.a.y() * inst.b.x()
 */
             long da = inst.b.y() * inst.p.x() - inst.b.x() * inst.p.y();

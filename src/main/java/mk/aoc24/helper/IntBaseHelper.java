@@ -17,16 +17,8 @@ public class IntBaseHelper {
         do {
             builder.append(DIGITS[no % base]);
             no /= base;
-        } while(no > 0);
+        } while (no > 0);
         return builder.reverse().toString();
-    }
-
-    public static boolean[] convertIntToArray(int no, int length) {
-        boolean[] bits = new boolean[length];
-        for (int i = length - 1; i >= 0; i--) {
-            bits[i] = (no & (1 << i)) != 0;
-        }
-        return bits;
     }
 
 }
